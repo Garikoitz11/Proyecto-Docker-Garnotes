@@ -4,7 +4,7 @@ Proyecto realizado para la asignatura Administración de Sistemas. Es una aplica
 ## Requisitos
 Docker Compose
 ## Ejecución
-- Clonar el repositorio en el equipo: ```$ git clone \<URL del repositorio> ```
-- Moverse dentro de la carpeta clonada: ```$ cd \<nombre del repositorio>```
+- Clonar el repositorio en el equipo: ```$ git clone <URL del repositorio> ```
+- Moverse dentro de la carpeta clonada: ```$ cd <nombre del repositorio>```
 - Ejecutar el script cambioMemoria.sh para incrementar la memoria virtual: ```$ ./cambioMemoria.sh```
 - Hacer docker compose up: ```$ docker compose up```
