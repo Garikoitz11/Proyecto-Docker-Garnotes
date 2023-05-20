@@ -1,0 +1,37 @@
+services:
+  web:
+    build: .
+    ports:
+      - 80:5000
+    depends_on:
+      - ldap
+      - crate
+  crate:
+    image: crate
+    ports:
+      - 4200:4200
+    volumes:
+      - vol-crate:/data
+    environment:
+      - CRATE_HEAP_SIZE=1g
+  ldap:
+    image: osixia/openldap
+    command: [ "--copy-service" ]
+    ports:
+      - 389:389
+    volumes: 
+      - vol-ldap-datos:/var/lib/ldap
+      - vol-ldap-conf:/etc/ldap/slapd.d
+      - ./estructura.ldif:/container/service/slapd/assets/config/bootstrap/ldif/estructura.ldif
+    environment: 
+      - LDAP_ORGANISATION=garnotes
+      - LDAP_DOMAIN=garnotes.com
+      - LDAP_REMOVE_CONFIG_AFTER_SETUP="false"
+      - LDAP_ADMIN_USERNAME=admin
+      - LDAP_ADMIN_PASSWORD=admin
+      - LDAP_BASE_DN=dc=garnotes,dc=com
+
+volumes:
+  vol-crate:
+  vol-ldap-datos:
+  vol-ldap-conf: 

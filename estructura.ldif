@@ -1,0 +1,11 @@
+dn: ou=usuarios,dc=garnotes,dc=com
+objectclass: top
+objectclass: organizationalUnit
+ou: usuarios
+
+dn: cn=administrador,ou=usuarios,dc=garnotes,dc=com
+objectClass: top
+objectClass: person
+cn: administrador
+sn: administrador
+userPassword: admin1234
